@@ -207,7 +207,6 @@ function carregarCards(caminhoJson, containerId, renderFn) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  carregarCards("data/artigos.json", "producoes-list", renderArtigos);
   carregarCards("data/projetos.json", "projetos-list", renderProjetos);
   carregarCards("data/formacoes.json", "formacoes-list", renderFormacoes);
   carregarPublicacoes();
