@@ -258,6 +258,15 @@ body {
   padding: 24px 0 72px;
 }
 
+.page-content h2 {
+  font-size: 1.2rem;
+  margin: 40px 0 14px;
+}
+
+.page-content h2:first-child {
+  margin-top: 0;
+}
+
 /* Cores de destaque por página */
 .page-sobre .icon-badge { background-color: var(--sobre-bg); color: var(--sobre-primary); }
 .page-sobre h1, .page-sobre .accent { color: var(--sobre-primary); }
@@ -380,6 +389,7 @@ body {
 }
 
 .photo-placeholder {
+  position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-lg);
@@ -394,10 +404,23 @@ body {
   font-size: 0.9rem;
   font-weight: 600;
   padding: 16px;
+  overflow: hidden;
 }
 
 .photo-placeholder i {
   font-size: 2.5rem;
+}
+
+/* Quando há uma foto real, ela cobre o placeholder.
+   Se o arquivo não existir, o onerror remove a imagem
+   e o placeholder (ícone + texto) volta a aparecer. */
+.profile-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .about-text h2 {

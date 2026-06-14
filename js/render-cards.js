@@ -124,6 +124,62 @@ function renderFormacoes(itens, container) {
 }
 
 // ---------------------------------------------------------
+// Publicações (data/publicacoes.json)
+// Campos: referencia, (nota opcional)
+// ---------------------------------------------------------
+function renderPublicacoes(itens, container) {
+  container.innerHTML = itens.map((item) => {
+    const notaHtml = item.nota
+      ? `<p class="meta">${escapeHtml(item.nota)}</p>`
+      : "";
+
+    return `
+      <article class="list-card">
+        <p class="description">${escapeHtml(item.referencia)}</p>
+        ${notaHtml}
+      </article>
+    `;
+  }).join("");
+}
+
+function carregarPublicacoes() {
+  const containers = {
+    artigos_periodicos: document.getElementById("artigos-periodicos-list"),
+    livros: document.getElementById("livros-list"),
+    capitulos: document.getElementById("capitulos-list"),
+  };
+
+  if (!containers.artigos_periodicos && !containers.livros && !containers.capitulos) return;
+
+  fetch("data/publicacoes.json")
+    .then((resposta) => {
+      if (!resposta.ok) {
+        throw new Error(`Não foi possível carregar data/publicacoes.json (HTTP ${resposta.status})`);
+      }
+      return resposta.json();
+    })
+    .then((dados) => {
+      Object.entries(containers).forEach(([chave, container]) => {
+        if (container) renderPublicacoes(dados[chave] || [], container);
+      });
+    })
+    .catch((erro) => {
+      console.error(erro);
+      Object.values(containers).forEach((container) => {
+        if (container) {
+          container.innerHTML = `
+            <p class="meta">
+              Não foi possível carregar o conteúdo (data/publicacoes.json).
+              Se você abriu este arquivo diretamente no navegador, rode um servidor
+              local (por exemplo "python -m http.server") e acesse pelo localhost.
+            </p>
+          `;
+        }
+      });
+    });
+}
+
+// ---------------------------------------------------------
 // Carregamento genérico de JSON com mensagens de erro amigáveis
 // ---------------------------------------------------------
 function carregarCards(caminhoJson, containerId, renderFn) {
@@ -154,4 +210,5 @@ document.addEventListener("DOMContentLoaded", () => {
   carregarCards("data/artigos.json", "producoes-list", renderArtigos);
   carregarCards("data/projetos.json", "projetos-list", renderProjetos);
   carregarCards("data/formacoes.json", "formacoes-list", renderFormacoes);
+  carregarPublicacoes();
 });
