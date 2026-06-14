@@ -72,17 +72,22 @@ function renderArtigos(itens, container) {
 }
 
 // ---------------------------------------------------------
-// Projetos e Pesquisa (data/projetos.json)
-// Campos: titulo, descricao, status
+// Projetos de Pesquisa, Ensino e Extensão (data/projetos.json)
+// Estrutura: { "pesquisa": [...], "ensino": [...], "extensao": [...] }
+// Campos por item: titulo, descricao, periodo, papel, (status e link opcionais)
 // ---------------------------------------------------------
 function renderProjetos(itens, container) {
   container.innerHTML = itens.map((item) => {
     const linkHtml = item.link
-      ? `<a class="card-link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">Ver detalhes <i class="ti ti-external-link"></i></a>`
+      ? `<a class="card-link" href="${escapeHtml(item.link)}" target="_blank" rel="noopener">Ver site do projeto <i class="ti ti-external-link"></i></a>`
       : "";
 
-    const prazoHtml = item.prazo
-      ? `<p class="meta">Prazo: ${escapeHtml(formatarData(item.prazo))}</p>`
+    const periodoHtml = item.periodo
+      ? `<p class="meta">Período: ${escapeHtml(item.periodo)}</p>`
+      : "";
+
+    const papelHtml = item.papel
+      ? `<p class="meta">Papel: ${escapeHtml(item.papel)}</p>`
       : "";
 
     return `
@@ -92,11 +97,49 @@ function renderProjetos(itens, container) {
           ${statusBadge(item.status)}
         </div>
         ${item.descricao ? `<p class="description">${escapeHtml(item.descricao)}</p>` : ""}
-        ${prazoHtml}
+        ${periodoHtml}
+        ${papelHtml}
         ${linkHtml}
       </article>
     `;
   }).join("");
+}
+
+function carregarProjetos() {
+  const containers = {
+    pesquisa: document.getElementById("projetos-pesquisa-list"),
+    ensino: document.getElementById("projetos-ensino-list"),
+    extensao: document.getElementById("projetos-extensao-list"),
+  };
+
+  if (!containers.pesquisa && !containers.ensino && !containers.extensao) return;
+
+  fetch("data/projetos.json")
+    .then((resposta) => {
+      if (!resposta.ok) {
+        throw new Error(`Não foi possível carregar data/projetos.json (HTTP ${resposta.status})`);
+      }
+      return resposta.json();
+    })
+    .then((dados) => {
+      Object.entries(containers).forEach(([chave, container]) => {
+        if (container) renderProjetos(dados[chave] || [], container);
+      });
+    })
+    .catch((erro) => {
+      console.error(erro);
+      Object.values(containers).forEach((container) => {
+        if (container) {
+          container.innerHTML = `
+            <p class="meta">
+              Não foi possível carregar o conteúdo (data/projetos.json).
+              Se você abriu este arquivo diretamente no navegador, rode um servidor
+              local (por exemplo "python -m http.server") e acesse pelo localhost.
+            </p>
+          `;
+        }
+      });
+    });
 }
 
 // ---------------------------------------------------------
@@ -207,7 +250,7 @@ function carregarCards(caminhoJson, containerId, renderFn) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  carregarCards("data/projetos.json", "projetos-list", renderProjetos);
+  carregarProjetos();
   carregarCards("data/formacoes.json", "formacoes-list", renderFormacoes);
   carregarPublicacoes();
 });

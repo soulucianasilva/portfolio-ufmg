@@ -1,6 +1,54 @@
-[
-  {"titulo": "Projeto A mão amiga da IA", "descricao": "Avaliação de aplicações de IA e seu potencial para otimizar o trabalho de professores de inglês.", "status": "Em andamento"},
-  {"titulo": "Reestruturação disciplinas LTE", "descricao": "Reorganização da disciplina Recursos Tecnológicos Aplicados ao Ensino em quatro blocos, com a IA como fio condutor.", "status": "Em andamento"},
-  {"titulo": "IC-Jr A mão amiga da IA", "descricao": "Iniciação científica júnior sobre uso ético e criativo da IA na produção de materiais educativos.", "status": "Em andamento"},
-  {"titulo": "ConectE-Letras", "descricao": "Laboratório de multiletramentos e educação digital para o ensino de línguas.", "status": "Em andamento"}
-]
+{
+  "pesquisa": [
+    {
+      "titulo": "A mão amiga da IA: otimizando fluxos de trabalho de professores de inglês",
+      "periodo": "Iniciado em 2024",
+      "papel": "Coordenadora"
+    },
+    {
+      "titulo": "Inovações tecnológicas em espaços e práticas sociais de ensino e aprendizagem de línguas: um estudo na perspectiva ecológica e complexa",
+      "periodo": "Integrante da equipe",
+      "papel": "Colaboradora / Equipe do Projeto (coordenado por Júnia de Carvalho Fidelis Braga)"
+    },
+    {
+      "titulo": "Laboratório DELTA — Design, Educação Linguística e Tecnologias Digitais",
+      "descricao": "Espaço de pesquisa colaborativo institucional voltado para a convergência entre tecnologias digitais, inteligência artificial, multiletramentos, metodologias ativas e formação de professores aplicados à educação linguística. Atua como o ecossistema científico e estrutural que unifica as ações e propostas de inovação tecnológica do grupo na Faculdade de Letras.",
+      "papel": "Professora Pesquisadora / Membro do Laboratório",
+      "link": "https://sites.google.com/view/deltaufmg/p%C3%A1gina-inicial?authuser=0"
+    }
+  ],
+  "ensino": [
+    {
+      "titulo": "Projeto Ing.Rede / Inglês em Rede",
+      "descricao": "Responsável pelo gerenciamento e oferta das disciplinas de Inglês Instrumental I (UNI001) e Inglês Instrumental II (UNI002) na modalidade digital/on-line.",
+      "periodo": "Atuação na equipe desde 2015; coordenação geral assumida a partir de 2018, mantendo-se ativa nos registros de editais PMG e PROGRAD subsequentes",
+      "papel": "Coordenadora do Projeto"
+    },
+    {
+      "titulo": "Ensino On-line na FALE: aprofundando o engajamento e a autonomia do estudante universitário",
+      "descricao": "Projeto institucional de ensino de graduação aprovado via edital do Programa para o Desenvolvimento do Ensino de Graduação (PDEG), abrangendo as disciplinas Inglês Instrumental I, Inglês Instrumental II e Recursos Tecnológicos Aplicados ao Ensino.",
+      "periodo": "Biênio de vigência 2025-2026, aprovado em 2024",
+      "papel": "Coordenadora da proposta"
+    },
+    {
+      "titulo": "ConectE-Letras",
+      "descricao": "Projeto de reestruturação do Laboratório de Projetos Especiais (sala 3004 da FALE) voltado à infraestrutura para práticas de multiletramentos, educação digital e inteligência artificial aplicadas ao ensino de línguas.",
+      "periodo": "Submetido/aprovado na Chamada Interna Fundo Fundep de 2024",
+      "papel": "Coordenadora da proposta"
+    }
+  ],
+  "extensao": [
+    {
+      "titulo": "Taba Eletrônica",
+      "descricao": "Rede voltada à formação tecnológica de professores da educação básica, em especial da rede pública, criando cursos e materiais digitais.",
+      "periodo": "Atuação registrada em 2020 e 2022",
+      "papel": "Colaboradora do projeto"
+    },
+    {
+      "titulo": "Supervisão de Cursos Assíncronos no CENEX FALE UFMG",
+      "descricao": "Atividade técnica e acadêmica ligada à gestão de ofertas digitais do Centro de Extensão da FALE.",
+      "periodo": "Desde 2022",
+      "papel": "Coordenadora técnica"
+    }
+  ]
+}
