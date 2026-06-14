@@ -1,0 +1,555 @@
+/* =========================================================
+   Portfólio acadêmico — estilos compartilhados
+   ========================================================= */
+
+:root {
+  --bg: #FFFBF2;
+  --text-main: #2E2A26;
+  --text-muted: #6B655E;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --max-width: 980px;
+
+  /* Cores por bloco/seção */
+  --sobre-bg: #EEEDFE;
+  --sobre-primary: #3C3489;
+  --sobre-secondary: #534AB7;
+
+  --producoes-bg: #E1F5EE;
+  --producoes-primary: #085041;
+  --producoes-secondary: #0F6E56;
+
+  --projetos-bg: #FAECE7;
+  --projetos-primary: #712B13;
+  --projetos-secondary: #993C1D;
+
+  --formacoes-bg: #FBEAF0;
+  --formacoes-primary: #72243E;
+  --formacoes-secondary: #993556;
+
+  --materiais-bg: #FAEEDA;
+  --materiais-primary: #633806;
+  --materiais-secondary: #854F0B;
+
+  --contato-bg: #E6F1FB;
+  --contato-primary: #0C447C;
+  --contato-secondary: #185FA5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================================
+   Cabeçalho
+   ========================================================= */
+
+.site-header {
+  padding: 56px 0 32px;
+}
+
+.site-header .home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.site-header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--text-main);
+}
+
+.back-link i {
+  font-size: 1.1rem;
+}
+
+/* =========================================================
+   Bento grid — página inicial
+   ========================================================= */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 64px;
+}
+
+@media (max-width: 720px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bento-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  min-height: 180px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.bento-card .icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.bento-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.bento-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Cores específicas de cada bloco */
+.bento-card.sobre {
+  background-color: var(--sobre-bg);
+}
+.bento-card.sobre .icon,
+.bento-card.sobre h2 {
+  color: var(--sobre-primary);
+}
+.bento-card.sobre p {
+  color: var(--sobre-secondary);
+}
+
+.bento-card.producoes {
+  background-color: var(--producoes-bg);
+}
+.bento-card.producoes .icon,
+.bento-card.producoes h2 {
+  color: var(--producoes-primary);
+}
+.bento-card.producoes p {
+  color: var(--producoes-secondary);
+}
+
+.bento-card.projetos {
+  background-color: var(--projetos-bg);
+}
+.bento-card.projetos .icon,
+.bento-card.projetos h2 {
+  color: var(--projetos-primary);
+}
+.bento-card.projetos p {
+  color: var(--projetos-secondary);
+}
+
+.bento-card.formacoes {
+  background-color: var(--formacoes-bg);
+}
+.bento-card.formacoes .icon,
+.bento-card.formacoes h2 {
+  color: var(--formacoes-primary);
+}
+.bento-card.formacoes p {
+  color: var(--formacoes-secondary);
+}
+
+.bento-card.materiais {
+  background-color: var(--materiais-bg);
+}
+.bento-card.materiais .icon,
+.bento-card.materiais h2 {
+  color: var(--materiais-primary);
+}
+.bento-card.materiais p {
+  color: var(--materiais-secondary);
+}
+
+.bento-card.contato {
+  background-color: var(--contato-bg);
+}
+.bento-card.contato .icon,
+.bento-card.contato h2 {
+  color: var(--contato-primary);
+}
+.bento-card.contato p {
+  color: var(--contato-secondary);
+}
+
+/* =========================================================
+   Páginas internas — estrutura geral
+   ========================================================= */
+
+.page-header {
+  padding: 48px 0 8px;
+}
+
+.page-header .icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+}
+
+.page-header h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page-header .lead {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 640px;
+}
+
+.page-content {
+  padding: 24px 0 72px;
+}
+
+/* Cores de destaque por página */
+.page-sobre .icon-badge { background-color: var(--sobre-bg); color: var(--sobre-primary); }
+.page-sobre h1, .page-sobre .accent { color: var(--sobre-primary); }
+.page-sobre a { color: var(--sobre-secondary); }
+
+.page-producoes .icon-badge { background-color: var(--producoes-bg); color: var(--producoes-primary); }
+.page-producoes h1, .page-producoes .accent { color: var(--producoes-primary); }
+.page-producoes a { color: var(--producoes-secondary); }
+
+.page-projetos .icon-badge { background-color: var(--projetos-bg); color: var(--projetos-primary); }
+.page-projetos h1, .page-projetos .accent { color: var(--projetos-primary); }
+.page-projetos a { color: var(--projetos-secondary); }
+
+.page-formacoes .icon-badge { background-color: var(--formacoes-bg); color: var(--formacoes-primary); }
+.page-formacoes h1, .page-formacoes .accent { color: var(--formacoes-primary); }
+.page-formacoes a { color: var(--formacoes-secondary); }
+
+.page-materiais .icon-badge { background-color: var(--materiais-bg); color: var(--materiais-primary); }
+.page-materiais h1, .page-materiais .accent { color: var(--materiais-primary); }
+.page-materiais a { color: var(--materiais-secondary); }
+
+.page-contato .icon-badge { background-color: var(--contato-bg); color: var(--contato-primary); }
+.page-contato h1, .page-contato .accent { color: var(--contato-primary); }
+.page-contato a { color: var(--contato-secondary); }
+
+/* =========================================================
+   Cartões de listagem (produções, projetos, formações, materiais)
+   ========================================================= */
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.list-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-card .card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.list-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.list-card .meta {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.list-card .description {
+  margin: 0;
+  color: var(--text-main);
+}
+
+.list-card .card-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.list-card .card-link i {
+  margin-left: 4px;
+}
+
+/* Badges de status */
+.status {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-ideia        { background-color: #F1F1F1; color: #5A5A5A; }
+.status-planejamento { background-color: #E6F1FB; color: #185FA5; } /* azul */
+.status-redacao      { background-color: #FAEEDA; color: #854F0B; } /* âmbar */
+.status-revisao      { background-color: #FAECE7; color: #993C1D; } /* laranja */
+.status-submetido    { background-color: #EEEDFE; color: #534AB7; } /* roxo */
+.status-publicado    { background-color: #CFEFE3; color: #085041; } /* verde escuro */
+.status-andamento    { background-color: #E1F5EE; color: #0F6E56; } /* verde */
+.status-concluido    { background-color: #CFEFE3; color: #085041; }
+.status-planejado    { background-color: #F1F1F1; color: #5A5A5A; }
+.status-outro        { background-color: #F1F1F1; color: #5A5A5A; }
+
+/* =========================================================
+   Sobre mim
+   ========================================================= */
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  background-color: var(--sobre-bg);
+  color: var(--sobre-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 16px;
+}
+
+.photo-placeholder i {
+  font-size: 2.5rem;
+}
+
+.about-text h2 {
+  font-size: 1.2rem;
+  margin: 32px 0 12px;
+}
+
+.about-text h2:first-child {
+  margin-top: 0;
+}
+
+.formacao-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.formacao-item i {
+  font-size: 1.3rem;
+  margin-top: 2px;
+}
+
+.formacao-item .formacao-text strong {
+  display: block;
+}
+
+.formacao-item .formacao-text span {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   Materiais
+   ========================================================= */
+
+.material-item .card-top i {
+  font-size: 1.4rem;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+/* =========================================================
+   Contato
+   ========================================================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 720px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-main);
+  transition: border-color 0.15s ease;
+}
+
+.contact-links a:hover {
+  border-color: var(--contato-secondary);
+}
+
+.contact-links a i {
+  font-size: 1.3rem;
+  color: var(--contato-primary);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: var(--bg);
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--contato-secondary);
+  outline-offset: 1px;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+  background-color: var(--contato-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--contato-secondary);
+}
+
+.form-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -4px;
+}
+
+/* =========================================================
+   Rodapé
+   ========================================================= */
+
+.site-footer {
+  padding: 32px 0 48px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
